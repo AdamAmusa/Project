@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'forcast',
+    loadChildren: () => import('./forcast/forcast.module').then( m => m.ForcastPageModule)
   },
+
 ];
 
 @NgModule({

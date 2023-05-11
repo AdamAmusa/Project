@@ -1,0 +1,158 @@
+.icon{
+width:70%;
+vertical-align: middle;
+position: absolute;
+justify-content: space-evenly;
+top: 60%;
+left: 50%;
+transform: translate(-50%, -50%);
+color:white;
+}
+
+
+.scroll-box {
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap; /* Prevents items from wrapping to a new line */
+  height: 100px; /* Set the height of the container as per your requirement */
+  position: absolute;
+  bottom: 0;
+}
+
+
+.Temperature{
+
+  font-size: 18vh;
+  font-family: 'Oxygen', sans-serif;
+  color: white;
+
+}
+
+ion-content{
+
+ --ion-background-color:#062e6fff;
+ //#073888ff;;
+ //;#0842a0ff;
+}
+.lowerHalf{
+  position:relative;
+  top: 60%;
+  line-height: 1.5;
+  top: -30px;
+}
+.description{
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  font-size: x-large;
+  top: 65%;
+  color:white;
+
+}
+
+.top{
+
+
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 1rem;
+  position:relative;
+  top: -20px;
+}
+
+
+body {
+  overflow: hidden;
+}
+
+ion-label{
+
+  font-family: 'IBM Plex Sans' sans-serif;
+
+}
+.bottom{
+
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+  font-size: large;
+  border-color: black;
+  border-width: 2px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: white;
+  top:-100%;
+}
+
+.feels{
+  font-family: 'IBM Plex Sans' sans-serif;
+margin-bottom: 10%;
+
+}
+.countryName{
+  position: relative;
+  top: 12%;
+  justify-content: space-evenly;
+  width: 100%;
+  left: 31.8%;
+  font-size: xx-large;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: white;
+  text-align: center;
+}
+.feelsLike{
+ 
+  position: fixed;
+  top: 70%;
+  width:100%;
+  left: 50%;
+  font-size: large;
+  transform: translate(-50%, -50%);
+
+}
+
+
+
+.humidValue{
+
+  position: absolute;
+  top: 13vh;
+  width:40px;
+  right:10vh;
+  transform: translate(200%, 20%);
+}
+
+.spacing{
+
+  word-spacing: 9.8px;
+}
+
+
+
+.Cloud{
+  //transform: translateY(-1px);
+  width:155vh;
+
+ 
+}
+.letterSpacing{
+
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+
+}
+
+
+
+.scroll-item {
+  display: inline-block;
+  margin-right: 10px; /* Set the margin as per your requirement */
+}
+
+.scroll-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}

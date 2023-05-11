@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>forecast</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!--Loop to traverse through the object arrays from the API-->
+  <div *ngFor="let item of Weather | keyvalue">
+    <ion-label class="countryName">{{selected}}</ion-label><!--Country name is printed out-->
+    
+    <div *ngFor="let item of Weather | keyvalue;"><!--Loop to traverse through the object arrays from the API-->
+      <div class="top">
+        <div [ngSwitch]="item.value.temp"> <!--Switch statement that prevents the temperature from printing multiple times-->
+          <ion-label class="Temperature" *ngSwitchDefault>{{item.value.temp - 273.15 | number: '1.0-0'}}°C</ion-label>
+          <ion-label style="font-size: xx-large;" *ngSwitchCase="undefined"></ion-label>
+          <ion-label style="font-size: xx-large;" *ngSwitchCase="null"></ion-label>
+        </div>
+      </div>
+      <!--Display rain or a haze icon if its raining or if there is a haze-->
+      <div [ngSwitch]="item.value.weather[0].main">
+        <img class="icon" *ngSwitchCase="'Rain'" src="\assets\images\Rain.png" label="Today" />
+        <img class="icon" *ngSwitchCase="'Haze'" src="\assets\images\Haze.png" label="Today" />
+  
+      </div>
+      <!--Sunny if its clear and display moon if its clear and its during the night-->
+      <div [ngSwitch]="item.value.weather[0].icon">
+        <img class="icon" *ngSwitchCase="'01n'" src="\assets\images\Nightclear.png" label="Today" />
+        <img class="icon" *ngSwitchCase="'01d'" src="\assets\images\Sunny.png" label="Today" />
+      </div>
+      <!--Display icons based off of description of the weather-->
+      <div [ngSwitch]="item.value.weather[0].description">
+        <img class="icon" *ngSwitchCase="'scattered clouds'" src="\assets\images\ScatteredClouds.png" label="Today" />
+        <img class="icon" *ngSwitchCase="'broken clouds'" src="\assets\images\brokenclouds.png" label="Today" />
+       <img class="icon" *ngSwitchCase="'overcast clouds'" src="\assets\images\Cloudy.png" label="Today" />
+        <img class="icon" *ngSwitchCase="'few clouds'" src="\assets\images\ScatteredClouds.png" label="Today" />
+      </div>
+
+    
+  
+    </div>
+    <!--Lower half of page-->
+    <div class ="lowerHalf">
+      <!--Prints out the description of the weather-->
+    <ion-label class ="description">{{item.value.weather[0].description}}</ion-label>
+      <!--Prints out wind speed/ Humidity and what the temperature feels like-->
+    <div class = "bottom">      
+    <ion-label >Wind Speed {{item.value.wind_speed}}MPH</ion-label>   
+    <ion-label>Humidity {{item.value.humidity}}%</ion-label>
+    <ion-label>Feels Like {{item.value.feels_like - 273.15 | number: '1.0-0'}}°C</ion-label>
+    </div>
+    </div>
+    </div>
+
+</ion-content>

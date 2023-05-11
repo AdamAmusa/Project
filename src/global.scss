@@ -9,6 +9,17 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
+ @font-face {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'Oxygen', sans-serif;
+    src: url("./assets/Oxygen/Oxygen-Regular.ttf");
+    src: url("./assets/IBMPlexSans-Regular.ttf");
+ }
+
+
+
+
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
