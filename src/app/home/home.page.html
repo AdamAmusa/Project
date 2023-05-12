@@ -9,35 +9,40 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Weather forecast</ion-title>
+      <ion-title style = "text-align: center;"size="large">Weather forecast</ion-title>
     </ion-toolbar>
   </ion-header>
 
 
 <div class = "Searchbar">
+  <h4 style="text-align: center;">Search for Country/City</h4>
   <ion-item >     <!--Country entered is saved in ngModel-->
-  <ion-searchbar [(ngModel)]="selectedCountry" placeholder ="Search for Country/City"></ion-searchbar><!--Search bar the user can fill in based on the choice of country or city they want to see the forecast of-->
+    <ion-searchbar [(ngModel)]="selectedCountry" placeholder ="Country/City"></ion-searchbar><!--Search bar the user can fill in based on the choice of country or city they want to see the forecast of-->
+    <ion-button [disabled]="!selectedCountry" (click)="saveCountries()">Save Country</ion-button>
 </ion-item>     
-
 </div>
 
 <div>
-  <h1 style ="text-align: center;">Or</h1>
+ 
 </div>
 
-  <div class="selectBar">
-    <ion-list>
+
+
+  <div class="selectBar">  <h4 class ="center-label">Saved Countries</h4>
+    <ion-list>  
       <ion-item>
         <!--List of countries the user can select from-->                <!--Country selected is saved in ngModel-->
         <ion-select aria-label="fruit" placeholder="Select City/Country" [(ngModel)]="selectedCountry" (ionChange)="onSelect()">
-          <ion-select-option value="Galway" >Galway</ion-select-option>
-          <ion-select-option value="Toronto">Toronto</ion-select-option>
-          <ion-select-option value="Shanghai">Shanghai</ion-select-option>
+          <div *ngFor = "let c of savedCountries">
+          <ion-select-option value="{{c}}">{{c}}</ion-select-option>
+        </div>
         </ion-select>
       </ion-item>
     </ion-list>
   </div>
   <div class="Enterbutton">
-  <ion-button color="dark" [disabled]="!selectedCountry" [routerLink]="['/forcast']">Forecast</ion-button><!--Button disabled when there is nothing inputed by the user-->
+  <ion-button color="dark" [disabled]="!selectedCountry" [routerLink]="['/forcast']">View</ion-button><!--Button disabled when there is nothing inputed by the user-->
+  <ion-button color="dark" fill="Clear" (click)="openLink()">Try out the API</ion-button><!--Directs user to APi site-->
   </div>
+  
 </ion-content>

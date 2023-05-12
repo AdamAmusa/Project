@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+     <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>daily</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Daily Forecast</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+ <!--Prints out data of daily weather-->
+  <div *ngFor = "let d of dailyWeather" class="daily">
+  <ion-label > {{d.temp.max - 273.15 | number: '1.0-0'}}°C {{d.weather[0].description}}</ion-label>
+  <div [ngSwitch] = "d.weather[0].description">
+    <img class="icons" *ngSwitchCase="'scattered clouds'" src="\assets\images\ScatteredClouds.png" label="Today" />
+    <img class="icons" *ngSwitchCase="'broken clouds'" src="\assets\images\brokenclouds.png" label="Today" />
+   <img  class="icons"  *ngSwitchCase="'overcast clouds'" src="\assets\images\Cloudy.png" label="Today" />
+    <img  class="icons"  *ngSwitchCase="'few clouds'" src="\assets\images\Cloudy.png" label="Today" />
+  </div>
+  <div [ngSwitch]="d.weather[0].main">
+    <img  class="icons" *ngSwitchCase="'Rain'" src="\assets\images\Rain.png" label="Today" /> 
+  </div>
+  <div [ngSwitch]="d.weather[0].icon">
+    <img  class="icons" *ngSwitchCase="'01n'" src="\assets\images\Nightclear.png" label="Today" />
+    <img class="icons"  *ngSwitchCase="'01d'" src="\assets\images\Sunny.png" label="Today" />
+  </div>
+  </div>
+  
+  <ion-label class="days" *ngFor = "let daysofWeek of daysofWeek">{{daysofWeek}}</ion-label>
+</ion-content>

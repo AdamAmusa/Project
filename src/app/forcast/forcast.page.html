@@ -3,9 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end" >
+    <ion-button [routerLink]="['/daily']">Daily Forcast</ion-button>
+    </ion-buttons>
     <ion-title>forecast</ion-title>
   </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content [fullscreen]="true">
   <!--Loop to traverse through the object arrays from the API-->
@@ -40,7 +45,7 @@
       </div>
 
     
-  
+      
     </div>
     <!--Lower half of page-->
     <div class ="lowerHalf">
@@ -54,5 +59,4 @@
     </div>
     </div>
     </div>
-
 </ion-content>

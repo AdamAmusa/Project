@@ -4,20 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ForcastPageRoutingModule } from './forcast-routing.module';
+import { DailyPageRoutingModule } from './daily-routing.module';
 
-import { ForcastPage } from './forcast.page';
-
-
+import { DailyPage } from './daily.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ForcastPage,
-    ForcastPageRoutingModule
+    DailyPageRoutingModule
   ],
-
+  declarations: [DailyPage]
 })
-export class ForcastPageModule {}
+export class DailyPageModule {}

@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'forcast',
     loadChildren: () => import('./forcast/forcast.module').then( m => m.ForcastPageModule)
   },
+  {
+    path: 'daily',
+    loadChildren: () => import('./daily/daily.module').then( m => m.DailyPageModule)
+  },
 
 ];
 

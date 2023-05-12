@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
 selection:string ="";
+dailyWeather:string[] = [];
 
   constructor() { }
 
@@ -16,6 +17,8 @@ setValue(value: string){
   
 }
 
-
+onSend(input:any[]){
+  this.dailyWeather = input;
+}
 
 }

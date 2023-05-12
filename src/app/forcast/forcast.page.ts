@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonicSwiper } from '@ionic/angular';
 import {WeatherService} from '../weather.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HomePage } from '../home/home.page';
+import { RouterModule } from '@angular/router';
 
 
 import{NgFor} from '@angular/common';
 import { DataService } from '../data.service';
+import { DailyPage } from '../daily/daily.page';
 @Component({
   selector: 'app-forcast',
   templateUrl: './forcast.page.html',
   styleUrls: ['./forcast.page.scss'],
   standalone: true,
-  imports: [IonicModule, HttpClientModule, NgFor, CommonModule],
+  imports: [IonicModule, HttpClientModule, NgFor, CommonModule, RouterModule],
   providers:[WeatherService]
 })
 
@@ -47,17 +48,16 @@ export class ForcastPage{
           (data)=>{
           this.dailyWeather = data.daily;
           this.Weather = data;
-          
-         // this.current_temp = data["main"]["temp"]
+          this.Selected.onSend(this.dailyWeather);
+    
         
       }
     );
       }
-    );
-
-    
-    
+    ); 
   }
+
+
 
 
 
